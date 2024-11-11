@@ -1,0 +1,38 @@
+﻿<Window x:Class="CourseManagement.SemeterManagement.AddSemester"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagement.SemeterManagement"
+    Loaded="Window_Loaded"
+    Title="AddSemester" Height="450" Width="500">
+    <Grid Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Add New Semester" FontSize="30" FontWeight="Bold" Foreground="LightSalmon"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="30,20" Grid.Row="1" >
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Id :" FontWeight="Bold" FontSize="20"  Margin="0,0,10,0"/>
+                <TextBlock x:Name="txtId" FontWeight="Bold" FontSize="20" Margin="0,5,0,0"/>
+            </StackPanel>
+           
+            <Label Content="Code"/>
+            <TextBox x:Name="txtCode" Height="25" SelectionChanged="txtCode_SelectionChanged"/>
+            <Label Content="Year"/>
+            <TextBox x:Name="txtYear" SelectionChanged="txtYear_SelectionChanged" Height="25"/>
+            <Label Content="Begin Date"/>
+            <DatePicker x:Name="txtStartDate" SelectedDateChanged="txtStartDate_SelectedDateChanged" Height="25"/>
+            <Label Content="End Date"/>
+            <DatePicker x:Name="txtEndDate" SelectedDateChanged="txtEndDate_SelectedDateChanged" Height="25"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnAdd" Content="Add" Click="btnAdd_Click" Width="150" Height="40" FontSize="26" Background="LightGreen"/>
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Margin="10,0,0,0" Width="150" Height="40" FontSize="26" Background="LightGray"/>
+        </StackPanel>
+    </Grid>
+</Window>

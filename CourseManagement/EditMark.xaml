@@ -1,0 +1,48 @@
+﻿<Window x:Class="CourseManagement.EditMark"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagement"
+        mc:Ignorable="d"
+        Title="EditMark" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblTitle" Content="Edit Mark" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Foreground="Red" FontSize="30" HorizontalAlignment="Center"/>
+
+        <DataGrid x:Name="dgData" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="6" SelectionChanged="dgData_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Assessment" Width="*" Binding="{Binding Assessment.Name}"/>
+                <DataGridTextColumn Header="Mark" Width="*" Binding="{Binding Mark1}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label x:Name="lblAssess" Content="Assessment" Grid.Row="2" Grid.Column="5"/>
+        <TextBox x:Name="txtAssess" Grid.Row="2" Grid.Column="6" Width="180" Grid.ColumnSpan="2" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Label x:Name="lblMark" Content="Mark" Grid.Row="3" Grid.Column="5"/>
+        <TextBox x:Name="txtMark" Grid.Row="3" Grid.Column="6" Width="180" Grid.ColumnSpan="2" Height="30" VerticalAlignment="top" HorizontalAlignment="Left"/>
+
+        <Button x:Name="btnEdit" Content="Edit" Grid.Row="4" Grid.Column="6" Height="30" VerticalAlignment="Top" Click="btnEdit_Click"/>
+    </Grid>
+</Window>

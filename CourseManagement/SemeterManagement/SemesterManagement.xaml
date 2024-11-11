@@ -1,0 +1,67 @@
+﻿<Window x:Class="CourseManagement.SemeterManagement.SemesterManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagement.SemeterManagement"
+        mc:Ignorable="d"
+       Loaded="Window_Loaded"
+    Title="SemesterManagement" Height="600" Width="1000">
+    <Grid Background="AntiqueWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical">
+            <Button Name="btnHome" Content="Home" Click="btnAddCourse_Click" Margin="5" Height="40"/>
+            <Button Name="btnCourses" Content="Courses" Click="btnCourses_Click" Margin="5" Height="40"/>
+            <Button Name="btnStudents" Content="Students" Click="btnStudents_Click" Margin="5" Height="40"/>
+            <Button Name="btnDepartments" Content="Departments" Click="btnDepartments_Click" Margin="5" Height="40"/>
+            <Button Name="btnSemesters" Content="Semesters" Click="btnSemesters_Click" Margin="5" Height="40"/>
+            <Button Name="btnEnrollment" Content="Enrollment" Click="btnEnrollment_Click" Margin="5" Height="40"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="Semester Management" FontSize="30" Margin="10" FontWeight="Bold" Foreground="LightSalmon" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Filter by Year" />
+                    <ComboBox x:Name="YearComboBox" Width="60"  Height="25" Margin="10,0" SelectionChanged="YearComboBox_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Filter by Date:" />
+                    <DatePicker x:Name="StartDate" Height="25" Margin="10,0" SelectedDateChanged="StartDate_SelectedDateChanged" />
+                    <Label Content="to" />
+                    <DatePicker x:Name="EndDate" Height="25" Margin="10,0" SelectedDateChanged="EndDate_SelectedDateChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name= "Clear" Click="Clear_Click" Background="Chocolate" Content="Clear" Margin="10,0" Height="25" Width="70"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Add" Content="Add" Width="70" Height="25" Background="LightGreen" Margin="10,0" Click="Add_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="Edit" Content="Edit" Click="Edit_Click" Width="70" Height="25" Background="LightBlue"  />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid x:Name="semesterData" Grid.Column="1" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="*"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding Year}" Width="100"/>
+                <DataGridTextColumn Header="Begin Date" Binding="{Binding BeginDate}" Width="108"/>
+                <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

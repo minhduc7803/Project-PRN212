@@ -1,0 +1,29 @@
+﻿<Window x:Class="CourseManagement.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagement"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid Background="#FF74F4DD">
+        <Frame x:Name="frMain" Content="Click Button to see page content"
+    VerticalAlignment="Top" NavigationUIVisibility="Visible"
+    Height="475" Margin="-20,-41,0,0"/>
+        <Button Name="btnbacktomain" Content="Back to Main" HorizontalAlignment="Left" Height="26" Margin="450,330,0,0" VerticalAlignment="Top" Width="72" Click="btnbacktomain_Click"/>
+
+        <Label Content="Department Manage" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Width="342" FontSize="36"/>
+        <DataGrid x:Name="dgDepartment" AutoGenerateColumns="False" Margin="10,92,487,10" SelectionChanged="MyDataGrid_SelectionChanged" Background="#FFF1A619">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Save" HorizontalAlignment="Left" Height="36" Margin="430,181,0,0" VerticalAlignment="Top" Width="112" Name="btnSave" Click="btnSave_Click" Background="#FF2D56D7" Foreground="#FFF6F0F0" />
+        <Button Content="Reset" HorizontalAlignment="Left" Height="36" Margin="430,240,0,0" VerticalAlignment="Top" Width="112" x:Name="btnReset" Click="btnReset_Click" Background="#FFF40A0A" Foreground="#FFFFFBFB"/>
+        <TextBox  x:Name="txtCode" HorizontalAlignment="Left" Height="37" Margin="352,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="37" Margin="510,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118"/>
+        <Label Content="Code" HorizontalAlignment="Center" Height="30" Margin="0,92,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="30" Margin="518,92,0,0" VerticalAlignment="Top" Width="96"/>
+    </Grid>
+</Window>

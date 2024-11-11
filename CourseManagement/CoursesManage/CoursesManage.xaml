@@ -1,0 +1,56 @@
+﻿<Window x:Class="CourseManagement.CoursesManage.CoursesManage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManagement.CoursesManage"
+        mc:Ignorable="d"
+        Title="CoursesManage" Height="500" Width="1028">
+    <Window.Resources>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="ColumnHeaderHeight" Value="40"/>
+            <Setter Property="RowHeight" Value="30"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="AntiqueWhite" Margin="0,0,42,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="371*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Content="COURSE MANAGE" Foreground="Red" Margin="0,0,0,9" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+            <Button Name="btnHome" Content="Home" Click="btnHome_Click" Margin="5" Height="40"/>
+            <Button Name="btnCourses" Content="Courses" Click="btnCourses_Click" Margin="5" Height="40"/>
+            <Button Name="btnStudents" Content="Students" Click="btnStudents_Click" Margin="5" Height="40"/>
+            <Button Name="btnDepartments" Content="Departments" Click="btnDepartments_Click" Margin="5" Height="40"/>
+            <Button Name="btnSemesters" Content="Semesters" Click="btnSemesters_Click" Margin="5" Height="40"/>
+            <Button Name="btnEnrollment" Content="Enrollment" Click="btnEnrollment_Click" Margin="5" Height="40"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="10,10,0,10">
+            <TextBlock Text="Filter by Title:" Margin="5"/>
+            <ComboBox Name="cbFilterTitle" Width="200" Margin="5" SelectionChanged="FilterCourses"/>
+            <TextBlock Text="Filter by Credits:" Margin="5"/>
+            <ComboBox Name="cboFilterCredits" Width="40" Margin="5" SelectionChanged="FilterCourses"/>
+            <Button Name="btnClearFilter" Content="Clear Filter" FontWeight="Bold" Click="btnClearFilter_Click" Margin="5" Width="70"/>
+            <Button Name="btnAddCourse" Content="ADD COURSE" Background="LightGreen" Width="100" Click="btnAddCourse_Click" FontWeight="Bold" Margin="5"/>
+            <Button Name="btnUpdateCourse" Content="UPDATE COURSE" Background="Aqua" Width="100" Click="btnUpdateCourse_Click" FontWeight="Bold" Margin="5"/>
+            <Button Name="btnViewAssessments" Content="VIEW ASSESSMENTS" Background="LightBlue" Width="120" Click="btnViewAssessments_Click" FontWeight="Bold" Margin="5"/>
+        </StackPanel>
+        <Button Grid.Row="2"  Name="btnLogout" Content="Log Out" Click="btnLogout_Click" Margin="5" Height="40" FontWeight="Bold" Background="LightSeaGreen" />
+        <DataGrid Name="dgCourses" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Margin="10,10,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Credits" Binding="{Binding Credits}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
